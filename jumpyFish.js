@@ -62,8 +62,8 @@ function draw() {
     context.drawImage(bg, 0, 0);
 
     for (let i = 0; i < pipe.length; i++) {
-        context.drawImage(pipeNorth, pipe[i].x, pipe[i].y, 52, 242);
-        context.drawImage(pipeSouth, pipe[i].x, pipe[i].y + constant, 52, 242);
+        context.drawImage(pipeNorth, pipe[i].x, pipe[i].y, pipeNorth.width, pipeNorth.height);
+        context.drawImage(pipeSouth, pipe[i].x, pipe[i].y + constant, pipeSouth.width, pipeSouth.height);
         
        pipe[i].x--;
 
@@ -80,7 +80,7 @@ function draw() {
              && fX <= pipe[i].x + pipeNorth.width
              && (fY <= pipe[i].y + pipeNorth.height 
              || fY + fish.height >=  pipe[i].y + constant)
-             || fY + fish.height >= canvas.height - fg.height){
+             || fY + fish.height >= canvas.height - fg.height) {
               location.reload();
              }
 
@@ -91,8 +91,8 @@ function draw() {
 
     
 
-    context.drawImage(fg, 0, 420, 306, 118);
-    context.drawImage(fish, fX, fY, 50, 35);
+    context.drawImage(fg, 0, 420, fg.width, fg.height);
+    context.drawImage(fish, fX, fY, fish.width, fish.height);
 
     fY += gravity;
 
